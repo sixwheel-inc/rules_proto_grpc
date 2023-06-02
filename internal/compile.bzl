@@ -315,7 +315,7 @@ def proto_compile(ctx, options, extra_protoc_args, extra_protoc_files):
 
         # $@ is replaced with args list and is quote wrapped to support paths with special chars
         mnemonic = "ProtoCompile"
-        command = ("mkdir -p '{}' && '{}'".format(premerge_root, protoc.path)
+        command = ("mkdir -p '{}' && '{} {}'".format(premerge_root, protoc.path, args)
         cmd_inputs += extra_protoc_files
         tools = [protoc] + ([plugin.tool_executable] if plugin.tool_executable else [])
 
